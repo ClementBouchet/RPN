@@ -32,7 +32,7 @@ public class RPNCoreCalculatorTest {
     }
 
     @Test
-    public void add_three_integers() {
+    public void one_plus_one_plus_one_makes_three() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         RPNInput input1 = RPNInput.integer(1);
         RPNInput input2 = RPNInput.integer(1);
