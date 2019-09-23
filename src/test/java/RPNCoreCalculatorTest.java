@@ -1,10 +1,8 @@
-
 import fr.lacombe.RPNCoreCalculator;
 import fr.lacombe.RPNInput;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RPNCoreCalculatorTest {
 
@@ -64,6 +62,18 @@ public class RPNCoreCalculatorTest {
         RPNInput input2 = RPNInput.integer(1);
         RPNInput input3 = RPNInput.integer(3);
         RPNInput input4 = RPNInput.operator("+");
+        RPNInput input5 = RPNInput.operator("*");
+        RPNInput[] inputs = {input1, input2, input3, input4, input5};
+        assertThat(calculator.calculate(inputs)).isEqualTo(6);
+    }
+
+    @Test
+    public void one_plus_one_multiplied_by_three_makes_six_with_different_order() {
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        RPNInput input1 = RPNInput.integer(1);
+        RPNInput input2 = RPNInput.integer(1);
+        RPNInput input3 = RPNInput.operator("+");
+        RPNInput input4 = RPNInput.integer(3);
         RPNInput input5 = RPNInput.operator("*");
         RPNInput[] inputs = {input1, input2, input3, input4, input5};
         assertThat(calculator.calculate(inputs)).isEqualTo(6);
