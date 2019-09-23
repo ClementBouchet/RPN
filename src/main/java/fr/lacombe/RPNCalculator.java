@@ -2,10 +2,10 @@ package fr.lacombe;
 
 public class RPNCalculator {
 
-    public static RPNInput calculate(String input) {
-        RPNInput[] inputs = RPNFormatter.formatToArray(input);
+    public static RPNNumber calculate(String input) {
+        RPNNumber[] inputs = RPNFormatter.formatToArray(input);
         RPNCoreCalculator rpnCoreCalculator = new RPNCoreCalculator();
-        return RPNInput.integer(rpnCoreCalculator.calculate(RPNFormatter.extractOperators(inputs), RPNFormatter.extractIntegers(inputs)));
+        return RPNNumber.integer(rpnCoreCalculator.calculate(RPNFormatter.extractOperators(inputs), RPNFormatter.extractIntegers(inputs)));
     }
 
 
