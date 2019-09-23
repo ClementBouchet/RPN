@@ -91,4 +91,30 @@ public class RPNCoreCalculatorTest {
         assertThat(calculator.calculate(inputs)).isEqualTo(1);
     }
 
+    @Test
+    public void eight_minus_six_divided_by_two_makes_one_with_different_order() {
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        RPNInput input1 = RPNInput.integer(8);
+        RPNInput input2 = RPNInput.integer(6);
+        RPNInput input3 = RPNInput.integer(2);
+        RPNInput input4 = RPNInput.operator("-");
+        RPNInput input5 = RPNInput.operator("/");
+        RPNInput[] inputs = {input1, input2, input3, input4, input5};
+        assertThat(calculator.calculate(inputs)).isEqualTo(1);
+    }
+
+    @Test
+    public void eight_minus_six_divided_by_two_plus_three_makes_four() {
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        RPNInput input1 = RPNInput.integer(8);
+        RPNInput input2 = RPNInput.integer(6);
+        RPNInput input3 = RPNInput.operator("-");
+        RPNInput input4 = RPNInput.integer(2);
+        RPNInput input5 = RPNInput.operator("/");
+        RPNInput input6 = RPNInput.integer(3);
+        RPNInput input7 = RPNInput.operator("+");
+        RPNInput[] inputs = {input1, input2, input3, input4, input5, input6, input7};
+        assertThat(calculator.calculate(inputs)).isEqualTo(4);
+    }
+
 }
