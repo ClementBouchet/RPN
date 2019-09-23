@@ -1,9 +1,10 @@
 package fr.lacombe;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class RPNCalculator {
-    public static RPNNumber calculate(String input) {
-        throw new NotImplementedException();
+
+    public static RPNInput calculate(String input) {
+        RPNInput[] inputs = RPNFormatter.formatToArray(input);
+        RPNCoreCalculator rpnCoreCalculator = new RPNCoreCalculator();
+        return RPNInput.integer(rpnCoreCalculator.calculate(inputs));
     }
 }
