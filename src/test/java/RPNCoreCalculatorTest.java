@@ -13,13 +13,13 @@ public class RPNCoreCalculatorTest {
     }
 
     @Test
-    public void when_multiply_2_by_3_return_6() {
+    public void when_two_integer_inputs_and_multiplication_input_make_multiplication_of_integers_input() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         assertThat(calculator.calculate(2,3,"*")).isEqualTo(6);
     }
 
     @Test
-    public void when_divide_6_by_2_return_3() {
+    public void when_two_integer_inputs_and_division_input_make_division_of_integers_input() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         assertThat(calculator.calculate(6,2,"/")).isEqualTo(3);
     }
