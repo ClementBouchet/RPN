@@ -30,4 +30,10 @@ public class RPNCoreCalculatorTest {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         assertThat(calculator.calculate(2,3,"*")).isEqualTo(6);
     }
+
+    @Test
+    public void name() {
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        assertThat(calculator.calculate(6,2,"/")).isEqualTo(3);
+    }
 }
