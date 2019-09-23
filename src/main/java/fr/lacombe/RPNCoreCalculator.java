@@ -20,8 +20,8 @@ public class RPNCoreCalculator {
 
         int result = integers.get(0);
         int integerIndex = 1;
-        for (int operatorIndex = 0; operatorIndex < operators.size(); operatorIndex++) {
-            result = calculate(result, integers.get(integerIndex), operators.get(operatorIndex));
+        for (String operator : operators) {
+            result = calculate(result, integers.get(integerIndex), operator);
             integerIndex++;
         }
 
