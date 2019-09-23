@@ -16,14 +16,6 @@ public class RPNCoreCalculator {
     }
 
 
-    public int calculate(RPNInput[] inputs) {
-
-        List<String> operators = RPNFormatter.extractOperators(inputs);
-        List<Integer> integers = RPNFormatter.extractIntegers(inputs);
-
-        return calculate(operators, integers);
-    }
-
     public int calculate(List<String> operators, List<Integer> integers) {
 
         int result = integers.get(0);
