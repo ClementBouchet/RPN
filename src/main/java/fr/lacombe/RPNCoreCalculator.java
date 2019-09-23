@@ -21,10 +21,10 @@ public class RPNCoreCalculator {
 
         List<String> operators = extractOperators(inputs);
         List<Integer> integers = extractIntegers(inputs);
-        int result = calculate(integers.get(0), integers.get(1), operators.get(0));
-        int integerIndex = 2;
-        int operatorIndex = 1;
-        for (int i = operatorIndex; i < operators.size(); i++) {
+
+        int result = integers.get(0);
+        int integerIndex = 1;
+        for (int operatorIndex = 0; operatorIndex < operators.size(); operatorIndex++) {
             result = calculate(result, integers.get(integerIndex), operators.get(operatorIndex));
             integerIndex++;
         }
