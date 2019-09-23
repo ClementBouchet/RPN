@@ -1,5 +1,6 @@
 
 import fr.lacombe.RPNCoreCalculator;
+import fr.lacombe.RPNInput;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -28,5 +29,17 @@ public class RPNCoreCalculatorTest {
     public void when_divide_input_by_zero_throw_an_exception() {
         RPNCoreCalculator rpnCoreCalculator = new RPNCoreCalculator();
         rpnCoreCalculator.calculate(4,0,"/");
+    }
+
+    @Test
+    public void add_three_integers() {
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        RPNInput input1 = RPNInput.integer(1);
+        RPNInput input2 = RPNInput.integer(1);
+        RPNInput input3 = RPNInput.integer(1);
+        RPNInput input4 = RPNInput.operator("+");
+        RPNInput input5 = RPNInput.operator("+");
+        RPNInput[] inputs = {input1, input2, input3, input4, input5};
+        assertThat(calculator.calculate(inputs)).isEqualTo(3);
     }
 }

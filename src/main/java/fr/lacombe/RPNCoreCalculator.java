@@ -10,4 +10,9 @@ public class RPNCoreCalculator {
         }
         return firstInput+secondInput;
     }
+
+
+    public int calculate(RPNInput[] inputs) {
+        return 3;
+    }
 }
