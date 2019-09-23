@@ -7,6 +7,8 @@ public class RPNCoreCalculator {
             return firstInput*secondInput;
         }else if("/".equals(operator)){
             return firstInput/secondInput;
+        }else if("-".equals(operator)){
+            return firstInput-secondInput;
         }
         return firstInput+secondInput;
     }
