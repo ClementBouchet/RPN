@@ -1,7 +1,8 @@
 package fr.lacombe;
 
 public class RPNCoreCalculator {
-    public int calculate(int input, int i) {
-        return input+i;
+
+    public int calculate(int firstInput, int secondInput) {
+        return firstInput+secondInput;
     }
 }
