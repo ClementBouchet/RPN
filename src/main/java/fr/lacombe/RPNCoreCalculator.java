@@ -18,9 +18,7 @@ public class RPNCoreCalculator {
 
 
     public int calculate(RPNInput[] inputs) {
-//        RPNInput[] splittedOperation = splitOperation(inputs);
-//        int firstResult = calculate(splittedOperation[0].integer, splittedOperation[1].integer, splittedOperation[2].operator);
-//        return calculate(firstResult, inputs[2].integer, inputs[4].operator);
+
         List<String> operators = extractOperators(inputs);
         List<Integer> integers = extractIntegers(inputs);
         int result = calculate(integers.get(0), integers.get(1), operators.get(0));
@@ -32,17 +30,6 @@ public class RPNCoreCalculator {
         }
 
         return result;
-    }
-
-    public RPNInput[] splitOperation(RPNInput[] inputs) {
-        RPNInput rpnInputOperator = null;
-        for (int i = 0; i < inputs.length; i++) {
-            if(inputs[i].operator != null){
-                rpnInputOperator = RPNInput.operator(inputs[i].operator);
-                break;
-            }
-        }
-        return new RPNInput[]{inputs[0], inputs[1], rpnInputOperator};
     }
 
     private List<String> extractOperators(RPNInput[] inputs){

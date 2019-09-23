@@ -79,42 +79,4 @@ public class RPNCoreCalculatorTest {
         assertThat(calculator.calculate(inputs)).isEqualTo(6);
     }
 
-    @Test
-    public void extract_first_operation_with_two_integers_from_complete_operation_OR_PARENTHESIS_RULE(){
-        RPNCoreCalculator calculator = new RPNCoreCalculator();
-        RPNInput input1 = RPNInput.integer(1);
-        RPNInput input2 = RPNInput.integer(1);
-        RPNInput input3 = RPNInput.integer(2);
-        RPNInput input4 = RPNInput.operator("+");
-        RPNInput input5 = RPNInput.operator("+");
-        RPNInput[] inputs = {input1, input2, input3, input4, input5};
-        RPNInput[] splittedInputs = {input1, input2, input4};
-        assertThat(calculator.splitOperation(inputs)).isEqualTo(splittedInputs);
-    }
-
-    @Test
-    public void PARENTHESIS_RULE_with_different_input_order(){
-        RPNCoreCalculator calculator = new RPNCoreCalculator();
-        RPNInput input1 = RPNInput.integer(1);
-        RPNInput input2 = RPNInput.integer(1);
-        RPNInput input3 = RPNInput.operator("+");
-        RPNInput input4 = RPNInput.integer(2);
-        RPNInput input5 = RPNInput.operator("+");
-        RPNInput[] inputs = {input1, input2, input3, input4, input5};
-        RPNInput[] splittedInputs = {input1, input2, input3};
-        assertThat(calculator.splitOperation(inputs)).isEqualTo(splittedInputs);
-    }
-
-    @Test
-    public void PARENTHESIS_RULE_triangulation(){
-        RPNCoreCalculator calculator = new RPNCoreCalculator();
-        RPNInput input1 = RPNInput.integer(1);
-        RPNInput input2 = RPNInput.integer(1);
-        RPNInput input3 = RPNInput.operator("*");
-        RPNInput input4 = RPNInput.integer(2);
-        RPNInput input5 = RPNInput.operator("+");
-        RPNInput[] inputs = {input1, input2, input3, input4, input5};
-        RPNInput[] splittedInputs = {input1, input2, input3};
-        assertThat(calculator.splitOperation(inputs)).isEqualTo(splittedInputs);
-    }
 }
