@@ -6,8 +6,10 @@ import org.junit.Test;
 public class RPNCoreCalculatorTest {
 
     @Test
-    public void name() {
+    public void when_add_zero_plus_zero_return_zero() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         Assertions.assertThat(calculator.calculate()).isEqualTo(0);
     }
+
+
 }
