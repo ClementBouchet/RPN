@@ -44,7 +44,7 @@ public class RPNCoreCalculatorTest {
         assertThat(calculator.calculate(inputs)).isEqualTo(3);
     }
 
-    @Ignore
+
     @Test
     public void one_plus_one_plus_two_makes_four() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
@@ -55,6 +55,18 @@ public class RPNCoreCalculatorTest {
         RPNInput input5 = RPNInput.operator("+");
         RPNInput[] inputs = {input1, input2, input3, input4, input5};
         assertThat(calculator.calculate(inputs)).isEqualTo(4);
+    }
+
+    @Test
+    public void one_plus_one_multiplied_by_three_makes_six() {
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        RPNInput input1 = RPNInput.integer(1);
+        RPNInput input2 = RPNInput.integer(1);
+        RPNInput input3 = RPNInput.integer(3);
+        RPNInput input4 = RPNInput.operator("+");
+        RPNInput input5 = RPNInput.operator("*");
+        RPNInput[] inputs = {input1, input2, input3, input4, input5};
+        assertThat(calculator.calculate(inputs)).isEqualTo(6);
     }
 
     @Test

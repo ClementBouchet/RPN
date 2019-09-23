@@ -15,7 +15,9 @@ public class RPNCoreCalculator {
 
 
     public int calculate(RPNInput[] inputs) {
-        return 3;
+        RPNInput[] splittedOperation = splitOperation(inputs);
+        int firstResult = calculate(splittedOperation[0].integer, splittedOperation[1].integer, splittedOperation[2].operator);
+        return calculate(firstResult, inputs[2].integer, inputs[4].operator);
     }
 
     public RPNInput[] splitOperation(RPNInput[] inputs) {

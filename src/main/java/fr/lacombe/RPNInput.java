@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class RPNInput {
 
-    private Integer integer;
+    Integer integer;
     String operator;
 
     public RPNInput(Integer integer, String operator) {
