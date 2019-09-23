@@ -15,16 +15,13 @@ public class RPNCoreCalculator {
         return firstInput+secondInput;
     }
 
-
     public int calculate(List<String> operators, List<Integer> integers) {
-
         int result = integers.get(0);
         int integerIndex = 1;
         for (String operator : operators) {
             result = calculate(result, integers.get(integerIndex), operator);
             integerIndex++;
         }
-
         return result;
     }
 

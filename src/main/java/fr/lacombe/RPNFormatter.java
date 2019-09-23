@@ -9,8 +9,8 @@ public class RPNFormatter {
 
         String[] inputs = input.split(" ");
         List<RPNNumber> inputList = new ArrayList<>();
-        for (int i = 0; i < inputs.length; i++) {
-            addElementInList(inputs[i], inputList);
+        for (String input1 : inputs) {
+            addElementInList(input1, inputList);
         }
         return inputList.toArray(new RPNNumber[0]);
     }
@@ -26,9 +26,9 @@ public class RPNFormatter {
     static List<Integer> extractIntegers(RPNNumber[] inputs){
         List<Integer> integers = new ArrayList<>();
 
-        for (int i = 0; i < inputs.length; i++) {
-            if(inputs[i].integer != null){
-                integers.add(inputs[i].integer);
+        for (RPNNumber input : inputs) {
+            if (input.integer != null) {
+                integers.add(input.integer);
             }
         }
 
@@ -38,9 +38,9 @@ public class RPNFormatter {
     static List<String> extractOperators(RPNNumber[] inputs){
         List<String> operators = new ArrayList<>();
 
-        for (int i = 0; i < inputs.length; i++) {
-            if(inputs[i].operator != null){
-                operators.add(inputs[i].operator);
+        for (RPNNumber input : inputs) {
+            if (input.operator != null) {
+                operators.add(input.operator);
             }
         }
 
