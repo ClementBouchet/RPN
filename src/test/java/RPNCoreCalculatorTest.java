@@ -1,15 +1,23 @@
 
 import fr.lacombe.RPNCoreCalculator;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class RPNCoreCalculatorTest {
 
     @Test
     public void when_add_zero_plus_zero_return_zero() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
-        Assertions.assertThat(calculator.calculate()).isEqualTo(0);
+        int input = 0;
+        assertThat(calculator.calculate(input)).isEqualTo(0);
     }
 
 
+    @Test
+    public void when_add_input_plus_zero_return_input() {
+        int input = 3;
+        RPNCoreCalculator calculator = new RPNCoreCalculator();
+        assertThat(calculator.calculate(input)).isEqualTo(input);
+    }
 }
