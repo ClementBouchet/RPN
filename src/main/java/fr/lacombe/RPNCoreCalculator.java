@@ -17,7 +17,6 @@ public class RPNCoreCalculator {
     }
 
     public RPNInput[] splitOperation(RPNInput[] inputs) {
-        RPNInput[] splittedInputs = {inputs[0], inputs[1], inputs[4]};
-        return splittedInputs;
+        return new RPNInput[]{inputs[0], inputs[1], inputs[4]};
     }
 }

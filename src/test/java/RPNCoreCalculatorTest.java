@@ -58,7 +58,7 @@ public class RPNCoreCalculatorTest {
     }
 
     @Test
-    public void addition_of_three_integers_is_equivalent_to_two_addition_of_two_integers(){
+    public void extract_first_operation_with_two_integers_from_complete_operation(){
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         RPNInput input1 = RPNInput.integer(1);
         RPNInput input2 = RPNInput.integer(1);
