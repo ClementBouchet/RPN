@@ -17,8 +17,13 @@ public class RPNCoreCalculator {
     }
 
     public RPNInput[] splitOperation(RPNInput[] inputs) {
-        RPNInput rpnInputoperator = RPNInput.operator("+");
-
-        return new RPNInput[]{inputs[0], inputs[1], rpnInputoperator};
+        RPNInput rpnInputOperator = null;
+        for (int i = 0; i < inputs.length; i++) {
+            if(inputs[i].operator != null){
+                rpnInputOperator = RPNInput.operator(inputs[i].operator);
+                break;
+            }
+        }
+        return new RPNInput[]{inputs[0], inputs[1], rpnInputOperator};
     }
 }
