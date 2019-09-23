@@ -19,4 +19,28 @@ public class RPNFormatter {
 
         return inputList.toArray(new RPNInput[0]);
     }
+
+    static List<Integer> extractIntegers(RPNInput[] inputs){
+        List<Integer> integers = new ArrayList<>();
+
+        for (int i = 0; i < inputs.length; i++) {
+            if(inputs[i].integer != null){
+                integers.add(inputs[i].integer);
+            }
+        }
+
+        return integers;
+    }
+
+    static List<String> extractOperators(RPNInput[] inputs){
+        List<String> operators = new ArrayList<>();
+
+        for (int i = 0; i < inputs.length; i++) {
+            if(inputs[i].operator != null){
+                operators.add(inputs[i].operator);
+            }
+        }
+
+        return operators;
+    }
 }

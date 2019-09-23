@@ -1,6 +1,5 @@
 package fr.lacombe;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RPNCoreCalculator {
@@ -19,8 +18,13 @@ public class RPNCoreCalculator {
 
     public int calculate(RPNInput[] inputs) {
 
-        List<String> operators = extractOperators(inputs);
-        List<Integer> integers = extractIntegers(inputs);
+        List<String> operators = RPNFormatter.extractOperators(inputs);
+        List<Integer> integers = RPNFormatter.extractIntegers(inputs);
+
+        return calculate(operators, integers);
+    }
+
+    public int calculate(List<String> operators, List<Integer> integers) {
 
         int result = integers.get(0);
         int integerIndex = 1;
@@ -30,30 +34,6 @@ public class RPNCoreCalculator {
         }
 
         return result;
-    }
-
-    private List<String> extractOperators(RPNInput[] inputs){
-        List<String> operators = new ArrayList<>();
-
-        for (int i = 0; i < inputs.length; i++) {
-            if(inputs[i].operator != null){
-                operators.add(inputs[i].operator);
-            }
-        }
-
-        return operators;
-    }
-
-    private List<Integer> extractIntegers(RPNInput[] inputs){
-        List<Integer> integers = new ArrayList<>();
-
-        for (int i = 0; i < inputs.length; i++) {
-            if(inputs[i].integer != null){
-                integers.add(inputs[i].integer);
-            }
-        }
-
-        return integers;
     }
 
 
