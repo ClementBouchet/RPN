@@ -32,8 +32,14 @@ public class RPNCoreCalculatorTest {
     }
 
     @Test
-    public void name() {
+    public void when_divide_6_by_2_return_3() {
         RPNCoreCalculator calculator = new RPNCoreCalculator();
         assertThat(calculator.calculate(6,2,"/")).isEqualTo(3);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void when_divide_input_by_zero_throw_an_exception() {
+        RPNCoreCalculator rpnCoreCalculator = new RPNCoreCalculator();
+        rpnCoreCalculator.calculate(4,0,"/");
     }
 }
