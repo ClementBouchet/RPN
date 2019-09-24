@@ -5,6 +5,9 @@ import java.util.List;
 
 public class RPNFormatter {
 
+    public static final String ONE_OPERATOR_IS_MISSING_ERROR_MESSAGE = "At least one operator is missing";
+    public static final String ONE_NUMBER_IS_MISSING_ERROR_MESSAGE = "At least one number is missing";
+
     public static RPNNumber[] formatToArray(String input) {
 
         String[] inputs = input.split(" ");
@@ -45,5 +48,15 @@ public class RPNFormatter {
         }
 
         return operators;
+    }
+
+    public static void isNumberOfArgumentsValid(List<String> operators, List<Integer> integers) throws IllegalArgumentException{
+        if(operators.size() < integers.size() -1){
+            throw new IllegalArgumentException(ONE_OPERATOR_IS_MISSING_ERROR_MESSAGE);
+        }
+        if(operators.size() > integers.size() -1){
+            throw new IllegalArgumentException(ONE_NUMBER_IS_MISSING_ERROR_MESSAGE);
+        }
+
     }
 }
