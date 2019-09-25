@@ -38,8 +38,8 @@ public class RPNFormatter {
         return integers;
     }
 
-    static List<Operation> extractOperators(RPNNumber[] inputs){
-        List<Operation> operators = new ArrayList<>();
+    static List<TwoVariablesOperation> extractOperators(RPNNumber[] inputs){
+        List<TwoVariablesOperation> operators = new ArrayList<>();
 
         for (RPNNumber input : inputs) {
             if (input.operator != null) {
@@ -50,23 +50,23 @@ public class RPNFormatter {
         return operators;
     }
 
-    static Operation parseStringToOperation(String input){
-        Operation operation;
+    private static TwoVariablesOperation parseStringToOperation(String input){
+        TwoVariablesOperation twoVariablesOperation;
 
         if("+".equals(input)){
-            operation = new Addition();
+            twoVariablesOperation = new Addition();
         }else if ("/".equals(input)){
-            operation = new Division();
+            twoVariablesOperation = new Division();
         }else if ("-".equals(input)){
-            operation = new Subtraction();
+            twoVariablesOperation = new Subtraction();
         }else{
-            operation = new Multiplication();
+            twoVariablesOperation = new Multiplication();
         }
 
-        return operation;
+        return twoVariablesOperation;
     }
 
-    public static void isNumberOfArgumentsValid(List<Operation> operators, List<Integer> integers) throws IllegalArgumentException{
+    public static void isNumberOfArgumentsValid(List<TwoVariablesOperation> operators, List<Integer> integers) throws IllegalArgumentException{
         if(operators.size() < integers.size() -1){
             throw new IllegalArgumentException(OPERATOR_IS_MISSING_ERROR_MESSAGE);
         }

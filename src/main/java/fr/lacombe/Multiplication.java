@@ -1,6 +1,6 @@
 package fr.lacombe;
 
-public class Multiplication extends Operation {
+public class Multiplication extends TwoVariablesOperation {
 
     @Override
     public int calculate(int firstOperand, int secondOperand) {

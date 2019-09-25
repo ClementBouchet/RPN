@@ -1,7 +1,7 @@
 import fr.lacombe.Addition;
 import fr.lacombe.Division;
-import fr.lacombe.Operation;
 import fr.lacombe.RPNCoreCalculator;
+import fr.lacombe.TwoVariablesOperation;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class RPNCoreCalculatorTest {
     @Test
     public void ten_plus_two_divided_by_three_makes_four() {
         RPNCoreCalculator rpnCalculator = new RPNCoreCalculator();
-        List<Operation> biFunctions = new ArrayList<>();
+        List<TwoVariablesOperation> biFunctions = new ArrayList<>();
         biFunctions.add(new Addition());
         biFunctions.add(new Division());
         List<Integer> integers = new ArrayList<>();
