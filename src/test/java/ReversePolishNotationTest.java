@@ -1,5 +1,5 @@
 import fr.lacombe.RPNCalculator;
-import fr.lacombe.RPNNumber;
+import fr.lacombe.RPNElement;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -8,24 +8,24 @@ public class ReversePolishNotationTest {
     @Test
     public void reverse_polish_notation_acceptance_test() {
         String input = "3 8 10 + *";
-        RPNNumber actualResult = RPNCalculator.calculate(input);
-        RPNNumber expectedResult = RPNNumber.integer(110);
+        RPNElement actualResult = RPNCalculator.calculate(input);
+        RPNElement expectedResult = RPNElement.integer(110);
         Assertions.assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
     public void reverse_polish_notation_acceptance_test2() {
         String input = "8 6 - 2 / 3 +";
-        RPNNumber actualResult = RPNCalculator.calculate(input);
-        RPNNumber expectedResult = RPNNumber.integer(4);
+        RPNElement actualResult = RPNCalculator.calculate(input);
+        RPNElement expectedResult = RPNElement.integer(4);
         Assertions.assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
-    public void reverse_polish_notation_acceptance_test_with_different_order() {
+    public void reverse_polish_notation_acceptance_test2_with_different_order() {
         String input = "8 6 2 3 - / +";
-        RPNNumber actualResult = RPNCalculator.calculate(input);
-        RPNNumber expectedResult = RPNNumber.integer(4);
+        RPNElement actualResult = RPNCalculator.calculate(input);
+        RPNElement expectedResult = RPNElement.integer(4);
         Assertions.assertThat(actualResult).isEqualTo(expectedResult);
     }
 
