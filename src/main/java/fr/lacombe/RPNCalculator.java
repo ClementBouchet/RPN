@@ -6,12 +6,12 @@ public class RPNCalculator {
 
     public static RPNNumber calculate(String input) {
         RPNNumber[] inputs = RPNFormatter.formatToArray(input);
-        List<String> operators = RPNFormatter.extractOperators(inputs);
+        List<Operation> biFunctions = RPNFormatter.extractOperators(inputs);
         List<Integer> integers = RPNFormatter.extractIntegers(inputs);
-        RPNFormatter.isNumberOfArgumentsValid(operators, integers);
+        RPNFormatter.isNumberOfArgumentsValid(biFunctions, integers);
 
         RPNCoreCalculator rpnCoreCalculator = new RPNCoreCalculator();
-        return RPNNumber.integer(rpnCoreCalculator.calculate(operators, integers));
+        return RPNNumber.integer(rpnCoreCalculator.calculate(biFunctions, integers));
     }
 
 

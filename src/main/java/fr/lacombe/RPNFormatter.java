@@ -38,19 +38,35 @@ public class RPNFormatter {
         return integers;
     }
 
-    static List<String> extractOperators(RPNNumber[] inputs){
-        List<String> operators = new ArrayList<>();
+    static List<Operation> extractOperators(RPNNumber[] inputs){
+        List<Operation> operators = new ArrayList<>();
 
         for (RPNNumber input : inputs) {
             if (input.operator != null) {
-                operators.add(input.operator);
+                operators.add(parseStringToOperation(input.operator));
             }
         }
 
         return operators;
     }
 
-    public static void isNumberOfArgumentsValid(List<String> operators, List<Integer> integers) throws IllegalArgumentException{
+    static Operation parseStringToOperation(String input){
+        Operation operation;
+
+        if("+".equals(input)){
+            operation = new Addition();
+        }else if ("/".equals(input)){
+            operation = new Division();
+        }else if ("-".equals(input)){
+            operation = new Subtraction();
+        }else{
+            operation = new Multiplication();
+        }
+
+        return operation;
+    }
+
+    public static void isNumberOfArgumentsValid(List<Operation> operators, List<Integer> integers) throws IllegalArgumentException{
         if(operators.size() < integers.size() -1){
             throw new IllegalArgumentException(OPERATOR_IS_MISSING_ERROR_MESSAGE);
         }
