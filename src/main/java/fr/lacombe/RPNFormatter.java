@@ -8,7 +8,7 @@ public class RPNFormatter {
     public static final String OPERATOR_IS_MISSING_ERROR_MESSAGE = "At least one operator is missing";
     public static final String NUMBER_IS_MISSING_ERROR_MESSAGE = "At least one number is missing";
 
-    public static RPNElement[] formatToArray(String input) {
+    public static RPNElement[] formatToArray(String input) throws IllegalArgumentException {
 
         String[] inputs = input.split(" ");
         List<RPNElement> inputList = new ArrayList<>();
@@ -18,11 +18,13 @@ public class RPNFormatter {
         return inputList.toArray(new RPNElement[0]);
     }
 
-    private static void addElementInList(String input, List<RPNElement> inputList) {
+    private static void addElementInList(String input, List<RPNElement> inputList) throws IllegalArgumentException {
         if("+".equals(input) || "*".equals(input) || "/".equals(input) || "-".equals(input)){
             inputList.add(RPNElement.operator(input));
-        }else {
+        }else if(input.matches("-?\\d+")){
             inputList.add(RPNElement.integer(Integer.valueOf(input)));
+        }else {
+            throw new IllegalArgumentException();
         }
     }
 
